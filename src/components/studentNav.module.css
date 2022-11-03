@@ -1,0 +1,42 @@
+.header{
+    width:100%;
+    height:70px;
+    display:flex;
+     justify-content: space-between; 
+    background-color:black;
+
+}
+
+.logoDiv{
+    padding:20px 10px ;
+    display:flex;
+    flex-direction: row;
+    color:#bccd5f;
+    font-size:25px;
+}
+
+.header ul{
+    list-style: none;
+    display:flex;
+    margin:0;
+    padding:0;
+}
+
+.header li{
+    padding:25px 80px; 
+    /* margin-left:15px; */
+
+}
+
+.header a {
+    color:white;
+    text-decoration: none;
+    font-size: 17px;
+    cursor:pointer;
+    font-size: 18px;
+
+}
+
+.header a:hover{
+    color:#bccd5f;
+}

@@ -1,0 +1,52 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap"); */
+
+body {
+  font-family: "Quicksand", sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  color: #4d4d4d;
+}
+
+.usersTable {
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+}
+
+.usersTable td,
+.usersTable th {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.usersTable tr:hover {
+  background-color: #ddd;
+}
+
+.usersTable th {
+  padding: 10px;
+  text-align: center;
+  background-color: #4caf50;
+  color: white;
+}
+
+.operation {
+  text-align: center;
+}
+
+.usersButton {
+  border: none;
+  outline: none;
+  font-size: 11px;
+  font-family: "Quicksand", sans-serif;
+  color: white;
+  background-color: #bccd5f;
+  padding: 3px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  /* border: 1px solid #bccd5f; */
+}
+
+.usersButton:active {
+  border: 1px solid blue;
+}
