@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import classes from "./Student.module.css";
 import StudentNav from './navbar';
 import { AdminDetails } from './adminDeatils';
 import api from "../api/api";
 import { useState } from 'react';
 import { StudentDetails } from './studentDetails';
 import { CoachDetails } from './coachDetails';
+import Footer from './footer';
 export const AdminDashboard = () =>{
+    const [isAdmin,setIsAdmin] = useState(false);
+
     const styles={
         width:"30%"
     };
@@ -55,20 +56,31 @@ export const AdminDashboard = () =>{
             console.log(e)
         }
     }
+
+    useEffect(()=>{
+        const role=localStorage.getItem('role');
+    if(role=="5001")
+     setIsAdmin(true);
+    })
     return(
+        isAdmin &&
         <>
-         <Container>
-        <div style={styles}>
-        <button className='primary' onClick={getCourts}>courts</button>
-        <button className='primary' onClick={getStudents}>Students</button>
-        <button className='primary' onClick={getCoachs}>Coach</button>
+        <StudentNav/>
+         <div>
+        <div  class={classes.vnav}>
+        <button className='primary' onClick={getCourts} class={classes.vnavButton}>courts</button>
+        <button className='primary' onClick={getStudents} class={classes.vnavButton}>Students</button>
+        <button className='primary' onClick={getCoachs} class={classes.vnavButton}>Coach</button>
         </div>
         <div>
-       {isCourt &&  <AdminDetails props={courts}/>}
-       {isStudent && <StudentDetails props={students}/> }
-       {iscoach && <CoachDetails props={coaches}/>}
+       {isCourt &&  <AdminDetails props={courts} />}
+       {isStudent && <StudentDetails props={students} /> }
+       {iscoach && <CoachDetails props={coaches} />}
         </div>
-    </Container>
+    </div>
+    <Footer/>
+    
     </>
+    
     )
 }

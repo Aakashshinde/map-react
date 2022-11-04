@@ -15,20 +15,20 @@
     font-size:25px;
 }
 
-.header ul{
+.headerul{
     list-style: none;
     display:flex;
     margin:0;
     padding:0;
 }
 
-.header li{
+.headerli{
     padding:25px 80px; 
     /* margin-left:15px; */
 
 }
 
-.header a {
+.headera {
     color:white;
     text-decoration: none;
     font-size: 17px;
@@ -37,6 +37,11 @@
 
 }
 
-.header a:hover{
+.headera:hover{
     color:#bccd5f;
+}
+
+.headerlink{
+    color:#bccd5f;
+    text-decoration: none;
 }

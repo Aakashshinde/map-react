@@ -20,6 +20,7 @@ export const StudentDetails = (props) =>{
         // e.preventDefault();
         // console.log(user_id)
         try{
+          console.log(user_id)
             const response = await api.post('/convertToCoach',{userId:user_id});
                  }
         catch(err){
@@ -43,7 +44,7 @@ export const StudentDetails = (props) =>{
                   <td>{user_email}</td>
                   <td className={classes.operation}>
                     <button
-                      className={classes.usersButton}
+                      className={classes.submitButton}
                       id={user_id}
                       onClick={()=>{
                         makeCoach(user_id)

@@ -1,0 +1,27 @@
+
+
+.footer{
+    padding: 10px;
+    /* height: 50px;
+    margin-bottom:0px;  */
+    position:fixed;
+    left:0;
+    bottom:0;
+    background-color:black;
+    width: 100%;
+  }
+  .footerul{
+    list-style-type: none;
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin: 0;
+    padding: 0;
+  }
+  .footerli{
+    padding:3px;
+    color:white;
+    cursor: pointer;
+  }
+
+

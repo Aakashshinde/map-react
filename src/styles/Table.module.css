@@ -1,32 +1,48 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap"); */
 
 body {
-  font-family: "Quicksand", sans-serif;
+  width:100%;
+  height:100%;
+  margin:0;
+  font-family: sans-serif;
   display: flex;
   justify-content: center;
   padding: 0;
   color: #4d4d4d;
 }
 
+/* .tablediv{
+
+  overflow: scroll;
+  height: 50px;
+
+} */
+
 .usersTable {
+  position:absolute;
+  top:150px;
+  left:300px;
+  width: auto;
+  max-height: 300px;
+  overflow-y: auto;
   border-collapse: collapse;
-  border: 3px solid #ddd;
+  /* border: 3px solid #ddd; */
 }
 
 .usersTable td,
 .usersTable th {
-  border: 1px solid #ddd;
+  border: 1px solid rgb(112, 97, 97);
   padding: 12px;
 }
 
 .usersTable tr:hover {
-  background-color: #ddd;
+  background-color:#ddd;
 }
 
 .usersTable th {
   padding: 10px;
   text-align: center;
-  background-color: #4caf50;
+  background-color: black;
   color: white;
 }
 
@@ -34,19 +50,56 @@ body {
   text-align: center;
 }
 
-.usersButton {
+.deleteButton {
   border: none;
   outline: none;
-  font-size: 11px;
+  font-size: 15px;
   font-family: "Quicksand", sans-serif;
-  color: white;
-  background-color: #bccd5f;
   padding: 3px 10px;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
-  /* border: 1px solid #bccd5f; */
+  border: 1px solid #f44336;
+  background-color: #f44336;
+  margin-right:5px;
+}
+
+.submitButton {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-family: "Quicksand", sans-serif;
+  padding: 3px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #bccd5f;
+  background-color: #bccd5f;
+  margin-left:5px;
 }
 
 .usersButton:active {
   border: 1px solid blue;
 }
+
+.userInput{
+  padding:3px 10px;
+}
+
+.addButton{
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-family: "Quicksand", sans-serif;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #bccd5f;
+  background-color: #bccd5f;
+  margin-left:5px;
+  margin-top:10px;
+}
+
+.addInput{
+  margin-top:10px;
+  padding: 5px 10px;
+}
+

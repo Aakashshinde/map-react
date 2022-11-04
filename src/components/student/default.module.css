@@ -1,0 +1,19 @@
+.body{
+    background-image: url('../images/home.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.home{
+    font-size:xx-large;
+    height:50rem;
+    
+}
+.text{
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+}

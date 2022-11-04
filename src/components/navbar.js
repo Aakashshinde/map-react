@@ -57,38 +57,54 @@ const  StudentNav=()=>{
             localStorage.removeItem('userId');
             localStorage.removeItem('user');
             localStorage.removeItem('role');
-            window.location.reload(); 
+            // window.location.reload(); 
+            navigate('/');
+        }
+
+        function navHome(){
+            if(localStorage.getItem('role')=="5001"){
+                navigate('/admin/dashboard',{replace:true});
+            }
+            else if(localStorage.getItem('role')=="2000"){
+                navigate('/coach/dashboard',{replace:true});
+            }
+            else if(localStorage.getItem('role')=="2001"){
+                navigate('/student/dashboard',{replace:true});
+            }
+            else{
+                navigate('/login',{replace:true});
+            }
         }
  return (
     
     <header className={classes.header}>
         <div className={classes.logoDiv}>
         {/* <img src='src/images/background.jpg' alt="logo"/> */}
-        <div >My Attendance Portal</div>
+        <div ><Link to="/" className={classes.headerlink}>My Attendance Portal</Link></div>
         </div>
         <nav>
-            <ul>
-                <li>
-                    <a>Home</a>
+            <ul className={classes.headerul}>
+                <li className={classes.headerli}>
+                    <a className={classes.headera} onClick={navHome}>Home</a>
                 </li>
-                <li>
-                    <a>About</a>
+                <li className={classes.headerli}>
+                    <a className={classes.headera}>About</a>
                 </li>  
-                <li>
-                    <a>Profile</a>
+                <li className={classes.headerli}>
+                    <a className={classes.headera}>Profile</a>
                 </li>
                 
                     {isLoggedIn?(
-                        <li>
+                        <li className={classes.headerli}>
     
-                  <a onClick={logout}>Logout</a>
+                  <a className={classes.headera} onClick={logout}>Logout</a>
                   
                     </li>  
                     ):
 (
-                        <li>
+                        <li className={classes.headerli}>
             
-                  <a onClick={()=>navigate("/signup")}>SignUp</a>
+                  <a className={classes.headera} onClick={()=>navigate("/signup")}>SignUp</a>
                     
                     </li>  
 )}

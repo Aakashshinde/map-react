@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
 import classes from './signUp.module.css';
 import StudentNav from './navbar';
-import { useState } from "react";
+import validator from "validator";
+import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from './footer';
 import api from "../api/api";
 const SignUp=()=> {
     const [username,setUsername] = useState(null);
     const [email,setEmail] = useState(null);
     const [password,setPassword] = useState(null);
     const [confirmPassword,setConfirmPassword] = useState(null);
+    const [passwordErr,setPasswordError] = useState(null);
+    const [isLoggedIn,setIsloggedIn] = useState(null);
+
     const navigate = useNavigate();
   async function login(e){
     e.preventDefault();
@@ -27,10 +32,40 @@ const SignUp=()=> {
                navigate('/login');
                          }
                         catch(err){
-                            console.log(err);
+                          if(err.response.status){
+                            alert("User Already Exits");
+                          }
                         }
         }
     }
+    const validatePassword = (e) => {
+      let pwd = e.target.value;
+  
+      if (validator.isStrongPassword(pwd)) {
+        setPasswordError("");
+      } else {
+        setPasswordError("Enter Strong Password!");
+      }
+      setPassword(pwd)
+  
+    };
+    const [nameError,setNameError] = useState(null);
+    const validateName = (e) => {
+      let Na = e.target.value;
+  
+      const validName = new RegExp("^([a-zA-Z ]){1,}$");
+      if (validName.test(Na)) {
+        setNameError("");
+      } else {
+        setNameError("Enter Alphabets Only!");
+      }
+      setUsername(e.target.value)  
+    };
+    useEffect(()=>{
+      const user = localStorage.getItem('role')
+      if(user)
+        navigate('/home');
+    })
   return (
     <>
     <StudentNav/>
@@ -45,9 +80,16 @@ const SignUp=()=> {
                 type="username"
                 id="username"
                 placeholder="Enter your Username"
-                onChange={(e)=> setUsername(e.target.value)}
+                onChange={(e) => validateName(e)}
                 required
               />
+              <span
+                          style={{
+                            color: "red",
+                          }}
+                        >
+                          {nameError}
+                        </span>
             </div>
 
             <div className={classes.formField}>
@@ -68,14 +110,21 @@ const SignUp=()=> {
                 id="password"
                 placeholder="Enter your password"
                 required
-                onChange={(e)=> setPassword(e.target.value)}
+                onChange={(e) => validatePassword(e)}
               />
+               <span
+                          style={{
+                            color: "red",
+                          }}
+                        >
+                          {passwordErr}
+                        </span>
             </div>
 
             <div className={classes.formField}>
               <label htmlFor="repeat-password">Confirm Password</label>
               <input
-                type="repeat-password"
+                type="password"
                 id="repeat-password"
                 placeholder="Re-enter password"
                 required
@@ -92,6 +141,7 @@ const SignUp=()=> {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
   );
 }

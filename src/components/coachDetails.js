@@ -3,7 +3,6 @@ import api from "../api/api";
 import classes from '../styles/Table.module.css';
 export const CoachDetails = (props) =>{
  const data = props.props;
- console.log(data);
     return (
       <div>
         <table className={classes.usersTable}>

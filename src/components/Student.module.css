@@ -1,0 +1,76 @@
+body{
+    margin:0;
+}
+.header{
+    margin:0;
+    width:100%;
+    height:70px;
+    display:flex;
+     justify-content: space-between; 
+    background-color:black;
+
+}
+
+.logoDiv{
+    padding:21px 10px ;
+    display:flex;
+    flex-direction: row;
+    color:#bccd5f;
+    font-size:25px;
+}
+
+.header ul{
+    list-style: none;
+    display:flex;
+    margin:0;
+    padding:0;
+}
+
+.header li{
+    padding:27px 80px; 
+    /* margin-left:15px; */
+
+}
+
+.header a {
+    color:white;
+    text-decoration: none;
+    font-size: 17px;
+    cursor:pointer;
+    font-size: 18px;
+
+}
+
+.header a:hover{
+    color:#bccd5f;
+}
+
+
+.vnav {
+    float: left;
+    background-color: black;
+    width:200px;
+    height: 100vh;
+    margin-left:-5px;
+  }
+  
+  .vnavButton {
+    display: block;
+    background-color: black;
+    color: white;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 17px;
+  }
+  
+  .vnavButton:hover {
+    background-color: #bccd5f;
+  }
+  
+  .vnavButton:active {
+    background-color: #ccc;
+  }

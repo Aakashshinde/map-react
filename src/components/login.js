@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../api/api";
 import jwt_decode from "jwt-decode";
+import Footer from "./footer";
 // import { useAuth } from "./auth";
 
 // export const Login = () =>{
@@ -55,7 +56,7 @@ import StudentNav from './navbar';
 function Login() {
     const [userEmail,setEmail] = useState(null);
     const [userPassword,setPwd] = useState(null);
-    // const auth = useAuth();
+    const [isLoggedIn,setIsloggedIn] = useState(null);
     const navigate = useNavigate();
   async function login(e){
         e.preventDefault();
@@ -80,6 +81,12 @@ function Login() {
             alert('Wrong password');
         }
     }
+
+    useEffect(()=>{
+      const user = localStorage.getItem('role')
+      if(user)
+        navigate('/home');
+    })
   return (
     <>
     <StudentNav/>
@@ -115,6 +122,7 @@ function Login() {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
   );
 }
